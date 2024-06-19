@@ -292,6 +292,15 @@ export type IssueEventParameters = {
 
 export type IssueEventKey = keyof IssueEventParameters;
 
+export type ExampleTutorialEventParameters = {
+  'example_tutorial.created': {
+    source: string;
+  };
+  'example_tutorial.viewed': {
+    source: string;
+  };
+};
+
 export const issueEventMap: Record<IssueEventKey, string | null> = {
   'autofix.setup_modal_viewed': 'Autofix: Setup Modal Viewed',
   'event_cause.viewed': null,
@@ -398,4 +407,12 @@ export const issueEventMap: Record<IssueEventKey, string | null> = {
     'Issue Details: Sourcemap Wizard Learn More',
   'issue_details.set_priority': 'Issue Details: Set Priority',
   'whats_new.link_clicked': "What's New: Link Clicked",
+};
+
+export const exampleTutorialEventMap: Record<
+  keyof ExampleTutorialEventParameters,
+  string | null
+> = {
+  'example_tutorial.created': 'Example Tutorial Created',
+  'example_tutorial.viewed': null, // don't send to Amplitude
 };
